@@ -11,6 +11,7 @@ using Microsoft.Identity.Client;
 using Microsoft.EntityFrameworkCore;
 using api.Interfaces;
 using api.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controlllers
 {
@@ -28,6 +29,7 @@ namespace api.Controlllers
 
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllStocks([FromQuery] QueryObject query)
         {
             if (!ModelState.IsValid)
